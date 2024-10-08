@@ -147,19 +147,19 @@ class KapalBongkarMuatan extends Kapal {
     }
 }
 
-class KapalPesiarMewah extends KapalPesiar { 
-    constructor(nama, jenis, panjang, lebar, kapasitasKamar, fasilitasMewah) {
-        super(nama, jenis, panjang, lebar, kapasitasKamar); 
-        this.fasilitasMewah = fasilitasMewah;  
+class PerahuKecil extends Kapal { 
+    constructor(nama, jenis, panjang, lebar, kapasitasPenumpang) {
+        super(nama, jenis, panjang, lebar); 
+        this.kapasitasPenumpang = kapasitasPenumpang;  
     }
     infoKapal() {
-        return `${super.infoKapal()} Kapal ini dilengkapi dengan fasilitas mewah: ${this.fasilitasMewah}.`;
+        return `${super.infoKapal()} Perahu ini dapat menampung ${this.kapasitasPenumpang} penumpang.`;
     }
-    nikmatiFasilitas() {
-        return `${this.nama} sedang menawarkan fasilitas mewah kepada tamu.`;
+    berlayar() {
+        return `${this.nama} sedang berlayar di perairan dangkal.`;
     }
     aksi() {
-        return `${this.nama} sedang menghibur para tamu dengan fasilitas mewah.`;
+        return `${this.nama} sedang memancing bersama penumpang.`;
     }
 }
 
@@ -171,9 +171,9 @@ const kapalPenyelamat = new KapalPenyelamat("Fireboat", "kapal pemadam kebakaran
 const kapalNelayan = new KapalNelayan("Longliner", "Nelayan", 180, 25, "Branch Lines (Snoods), Hooks, dan Catch Bags");
 const kapalRiset = new KapalRiset("Ocean Explorer", "Kapal Riset", 200, 30, "Alat sonar dan sampling");
 const kapalBongkarMuatan = new KapalBongkarMuatan("Cargo Unloader", "Kapal Bongkar", 250, 35, 1200);
-const kapalPesiarMewah = new KapalPesiarMewah("Luxury Cruise", "Pesiar Mewah", 300, 40, 800, "Kolam renang, spa, dan restoran bintang lima");
+const perahuKecil = new PerahuKecil("Speedy", "Perahu", 10, 3, 4);
 
-const armada = [kapalFerry, kapalKargo, kapalMiliter, kapalPesiar, kapalPenyelamat, kapalNelayan, kapalRiset, kapalBongkarMuatan, kapalPesiarMewah];
+const armada = [kapalFerry, kapalKargo, kapalMiliter, kapalPesiar, kapalPenyelamat, kapalNelayan, kapalRiset, kapalBongkarMuatan, perahuKecil];
 
 armada.forEach(kapal => {
     console.log(kapal.infoKapal());
