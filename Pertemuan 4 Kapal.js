@@ -115,14 +115,65 @@ class KapalNelayan extends Kapal {
     }
 }
 
+class KapalRiset extends Kapal { 
+    constructor(nama, jenis, panjang, lebar, peralatanRiset) {
+        super(nama, jenis, panjang, lebar); 
+        this.peralatanRiset = peralatanRiset;  
+    }
+    infoKapal() {
+        return `${super.infoKapal()} Kapal ini dilengkapi dengan peralatan riset: ${this.peralatanRiset}.`;
+    }
+    lakukanRiset() {
+        return `${this.nama} sedang melakukan penelitian ilmiah di laut.`;
+    }
+    aksi() {
+        return `${this.nama} sedang berlayar untuk melakukan riset.`;
+    }
+}
+
+class KapalBongkarMuatan extends Kapal { 
+    constructor(nama, jenis, panjang, lebar, kapasitasBongkar) {
+        super(nama, jenis, panjang, lebar); 
+        this.kapasitasBongkar = kapasitasBongkar;  
+    }
+    infoKapal() {
+        return `${super.infoKapal()} Kapal ini memiliki kapasitas bongkar ${this.kapasitasBongkar} ton.`;
+    }
+    bongkarMuatan() {
+        return `${this.nama} sedang membongkar muatan.`;
+    }
+    aksi() {
+        return `${this.nama} sedang melakukan proses bongkar muatan.`;
+    }
+}
+
+class KapalPesiarMewah extends KapalPesiar { 
+    constructor(nama, jenis, panjang, lebar, kapasitasKamar, fasilitasMewah) {
+        super(nama, jenis, panjang, lebar, kapasitasKamar); 
+        this.fasilitasMewah = fasilitasMewah;  
+    }
+    infoKapal() {
+        return `${super.infoKapal()} Kapal ini dilengkapi dengan fasilitas mewah: ${this.fasilitasMewah}.`;
+    }
+    nikmatiFasilitas() {
+        return `${this.nama} sedang menawarkan fasilitas mewah kepada tamu.`;
+    }
+    aksi() {
+        return `${this.nama} sedang menghibur para tamu dengan fasilitas mewah.`;
+    }
+}
+
 const kapalFerry = new KapalPenumpang("Queen of Cowichan", "Ferry", 160, 24, 1600);
 const kapalKargo = new KapalKargo("Large Crude Carriers", "Kargo", 300, 50, 1000);
 const kapalMiliter = new KapalMiliter("KRI I Gusti Ngurah Rai (332)", "Kapal Perusak (Destroyer)", 150, 20, "Rudal Exocet, meriam 76 mm, dan torpedo.");
 const kapalPesiar = new KapalPesiar("Titanic II", "Pesiar", 250, 30, 500);
 const kapalPenyelamat = new KapalPenyelamat("Fireboat", "kapal pemadam kebakaran laut", 120, 20, "sistem pemadam kebakaran yang kuat");
 const kapalNelayan = new KapalNelayan("Longliner", "Nelayan", 180, 25, "Branch Lines (Snoods), Hooks, dan Catch Bags");
+const kapalRiset = new KapalRiset("Ocean Explorer", "Kapal Riset", 200, 30, "Alat sonar dan sampling");
+const kapalBongkarMuatan = new KapalBongkarMuatan("Cargo Unloader", "Kapal Bongkar", 250, 35, 1200);
+const kapalPesiarMewah = new KapalPesiarMewah("Luxury Cruise", "Pesiar Mewah", 300, 40, 800, "Kolam renang, spa, dan restoran bintang lima");
 
-const armada = [kapalFerry, kapalKargo, kapalMiliter, kapalPesiar, kapalPenyelamat, kapalNelayan];
+const armada = [kapalFerry, kapalKargo, kapalMiliter, kapalPesiar, kapalPenyelamat, kapalNelayan, kapalRiset, kapalBongkarMuatan, kapalPesiarMewah];
 
 armada.forEach(kapal => {
     console.log(kapal.infoKapal());
