@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Peminjaman Buku</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container mt-5">
+        <h1 class="text-center">Peminjaman Buku</h1>
+        <form id="book-form" class="mb-4">
+            <div class="form-row">
+                <div class="form-group col-md-3">
+                    <input type="text" id="title" required class="form-control" placeholder="Judul Buku">
+                </div>
+                <div class="form-group col-md-3">
+                    <input type="text" id="author" required class="form-control" placeholder="Pengarang Buku">
+                </div>
+                <div class="form-group col-md-3">
+                    <input type="text" id="borrower" required class="form-control" placeholder="Nama Peminjam">
+                </div>
+                <div class="form-group col-md-3">
+                    <input type="date" id="loanDate" class="form-control">
+                </div>
+            </div>
+            <button type="submit" class="btn btn-primary btn-block">Tambah Buku</button>
+        </form>
+        
+        <table class="table table-striped table-bordered">
+            <thead>
+                <tr>
+                    <th>Judul</th>
+                    <th>Pengarang</th>
+                    <th>Peminjam</th>
+                    <th>Tanggal Pinjam</th>
+                    <th>Aksi</th>
+                </tr>
+            </thead>
+            <tbody id="book-list">
+                <!-- Daftar buku akan ditampilkan di sini -->
+            </tbody>
+        </table>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
