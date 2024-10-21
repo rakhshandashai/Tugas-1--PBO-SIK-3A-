@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/publik/styles.css">
+    <title>Library System</title>
+</head>
+<body>
+    <div class="container">
+        <h1>Welcome to the Library, <%= username %>!</h1>
+        <% if (message) { %>
+            <div class="message"><%= message %></div>
+        <% } %>
+        <h2>Available Books</h2>
+        <ul>
+            <% books.forEach(book => { %>
+                <li>
+                    <%= book %>
+                    <form action="/borrow" method="POST" style="display:inline;">
+                        <input type="hidden" name="title" value="<%= book %>">
+                        <button type="submit">Borrow</button>
+                    </form>
+                </li>
+            <% }) %>
+        </ul>
+        <h2>Return Book</h2>
+        <form action="/return" method="POST">
+            <button type="submit">Return Last Borrowed Book</button>
+        </form>
+        <a href="/logout" class="logout">Logout</a>
+    </div>
+</body>
+</html>
