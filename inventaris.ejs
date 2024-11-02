@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Data Inventaris</title>
+</head>
+<body>
+    <h2>Data Inventaris</h2>
+    <a href="/auth/logout">Logout</a>
+    <table border="1">
+        <tr><th>ID</th><th>Nama</th><th>Jumlah</th></tr>
+        <% inventaris.forEach(item => { %>
+            <tr>
+                <td><%= item.id %></td>
+                <td><%= item.nama %></td>
+                <td><%= item.jumlah %></td>
+            </tr>
+        <% }); %>
+    </table>
+</body>
+</html>
